@@ -1,6 +1,6 @@
-import User from './user.model'
+import User from '../models/user-model'
 
-export default class Users {
+export default class UsersService {
 
   static getUsers() {
     const users = new Set<User>([

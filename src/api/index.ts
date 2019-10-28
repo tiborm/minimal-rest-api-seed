@@ -1,5 +1,5 @@
 import express from 'express'
-import users from './routes/users'
+import users from '../controllers/users-controller'
 
 var router = express.Router()
 

@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express'
-import usersSvc from '../../services/users'
+import usersSvc from '../services/users-service'
 
 const getUsers = (req: Request, res: Response, next: NextFunction) => {
-  res.send(usersSvc.getUsers())
+  res.json(usersSvc.getUsers())
 }
 
 export default {
