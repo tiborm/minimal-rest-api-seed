@@ -5,7 +5,7 @@
  */
 
 var app = require('./app');
-var debug = require('debug')('metron-middle-end:server');
+var debug = require('debug')('espress-node:service');
 var http = require('http');
 
 /**
