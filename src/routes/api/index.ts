@@ -4,7 +4,7 @@ import users from "../../controllers/users-controller";
 var router = express.Router();
 
 interface EndpointDefinition {
-    endpoint: RegExp;
+    endpoint: string | RegExp; // path params not captured if endpoint is a RegExp
     method: Function;
     handler: Function;
 }
@@ -17,9 +17,14 @@ const DELETE = router.delete.bind(router);
 /* Endpoint definitions */
 const endpoints: EndpointDefinition[] = [
     {
-        endpoint: /\/users/,
+        endpoint: '/users',
         method: GET,
         handler: users.getUsers,
+    },
+    {
+        endpoint: '/users/:id',
+        method: GET,
+        handler: users.getUsersByID,
     },
 ];
 
