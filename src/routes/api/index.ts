@@ -3,11 +3,29 @@ import users from "../../controllers/users-controller";
 
 var router = express.Router();
 
-// TODO I'm not sure about this anymore
+interface EndpointDefinition {
+    endpoint: RegExp;
+    method: Function;
+    handler: Function;
+}
+
 const GET = router.get.bind(router);
 const POST = router.post.bind(router);
+const PUT = router.put.bind(router);
+const DELETE = router.delete.bind(router);
 
 /* Endpoint definitions */
-GET("/users", users.getUsers);
+const endpoints: EndpointDefinition[] = [
+    {
+        endpoint: /\/users/,
+        method: GET,
+        handler: users.getUsers,
+    },
+];
+
+/* Register endpoints */
+endpoints.forEach((endpoint: EndpointDefinition) => {
+    endpoint.method(endpoint.endpoint, endpoint.handler);
+});
 
 export default router;
