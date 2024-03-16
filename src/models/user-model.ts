@@ -1,5 +1,5 @@
-export default class User {
-  id = ''
-  name = ''
-  age = 0
+export default interface User {
+  id: string,
+  name: string,
+  age: number,
 }
